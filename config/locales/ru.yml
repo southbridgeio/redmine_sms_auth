@@ -1,0 +1,3 @@
+ru:
+  sms_password: 'Код подтверждения'
+  notice_account_invalid_sms_password: 'Неверный код подтверждения'

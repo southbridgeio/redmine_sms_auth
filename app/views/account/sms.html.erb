@@ -1,0 +1,17 @@
+<div id="login-form">
+    <%= form_tag(sms_confirm_path) do %>
+        <table>
+          <tr>
+            <td align="right"><label for="sms_password"><%=l(:sms_password)%>:</label></td>
+            <td align="left"><%= text_field_tag :sms_password %></td>
+          </tr>
+          <tr>
+            <td align="right" colspan="2">
+              <input type="submit" name="login" value="<%=l(:button_login)%> &#187;"/>
+            </td>
+          </tr>
+        </table>
+    <% end %>
+</div>
+
+<%= javascript_tag "$('#sms_password').focus();" %>
