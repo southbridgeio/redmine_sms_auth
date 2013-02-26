@@ -1,3 +1,4 @@
 en:
   sms_password: 'SMS confirmation password'
   notice_account_invalid_sms_password: 'Wrong SMS confirmation password'
+  field_mobile_phone: 'Mobile phone'
