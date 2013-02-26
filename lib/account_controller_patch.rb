@@ -15,6 +15,8 @@ module AccountControllerPatch
       if session[:sms_user_id] && session[:sms_password]
         if session[:sms_password] == params[:sms_password].to_s
           user = User.find(session[:sms_user_id])
+          session[:sms_user_id] = nil
+          session[:sms_password] = nil
           successful_authentication(user)
         else
           flash[:error] = l(:notice_account_invalid_sms_password)
@@ -31,10 +33,12 @@ module AccountControllerPatch
       user = User.where(login: params[:username].to_s).first
       if user && user.auth_source && user.auth_source.auth_method_name == 'SMS'
         if User.hash_password("#{user.salt}#{User.hash_password params[:password]}") == user.hashed_password
-          session[:sms_password] = (rand(9000) + 1000).to_s # TODO configurable length
           session[:sms_user_id] = user.id
-          system "notify-send #{session[:sms_password]}" # TODO make configurable shell command
+          session[:sms_password] = SmsAuth.generate_sms_password
+          SmsAuth.send_sms_password(user.mobile_phone, session[:sms_password])
           render 'sms'
+        else
+          invalid_credentials
         end
       else
         password_authentication_without_sms_auth
