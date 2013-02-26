@@ -31,8 +31,8 @@ module AccountControllerPatch
 
     def password_authentication_with_sms_auth
       user = User.where(login: params[:username].to_s).first
-      if user && user.auth_source && user.auth_source.auth_method_name == 'SMS'
-        if User.hash_password("#{user.salt}#{User.hash_password params[:password]}") == user.hashed_password
+      if user && user.auth_source && user.auth_source.auth_method_name == 'SMS' && !user.mobile_phone.blank?
+        if User.try_to_login(params[:username], params[:password]) == user
           session[:sms_user_id] = user.id
           session[:sms_password] = SmsAuth.generate_sms_password
           SmsAuth.send_sms_password(user.mobile_phone, session[:sms_password])
