@@ -9,7 +9,7 @@ class SmsAuthTest < ActiveSupport::TestCase
   end
 
   def test_send_sms_password
-    SmsAuth::Configuration.expects(:send_command).returns('echo %{phone} %{password}')
+    SmsAuth::Configuration.expects(:command).returns('echo %{phone} %{password}')
     SmsAuth.expects(:system).with('echo 79999999999 1234')
     SmsAuth.send_sms_password('79999999999', '1234')
   end

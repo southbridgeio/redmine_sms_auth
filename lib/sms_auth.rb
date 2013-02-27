@@ -2,9 +2,9 @@ module SmsAuth
 
   module Configuration
 
-    def self.send_command
+    def self.command
       configuration = Redmine::Configuration['sms_auth']
-      configuration && configuration['send_command'] ? configuration['send_command'] : 'notify-send %{phone} %{password}'
+      configuration && configuration['command'] ? configuration['command'] : 'echo %{phone} %{password}'
     end
 
     def self.password_length
@@ -23,9 +23,9 @@ module SmsAuth
 
   def self.send_sms_password(phone, password)
     phone = phone.gsub(/[^0-9]+/,'') # Additional phone sanitizing
-    send_command = SmsAuth::Configuration.send_command
-    send_command = send_command.sub('%{phone}', phone).sub('%{password}', password)
-    system send_command
+    command = SmsAuth::Configuration.command
+    command = command.sub('%{phone}', phone).sub('%{password}', password)
+    system command
   end
 
 end
