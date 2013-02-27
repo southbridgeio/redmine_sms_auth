@@ -27,6 +27,18 @@ module AccountControllerPatch
       end
     end
 
+    def sms_resend
+      if session[:sms_user_id] && session[:sms_password]
+        user = User.find(session[:sms_user_id])
+        session[:sms_password] = SmsAuth.generate_sms_password
+        SmsAuth.send_sms_password(user.mobile_phone, session[:sms_password])
+        flash[:notice] = l(:notice_account_sms_resent_again)
+        render 'sms'
+      else
+        redirect_to root_path
+      end
+    end
+
     private
 
     def password_authentication_with_sms_auth
@@ -50,5 +62,3 @@ module AccountControllerPatch
 end
 
 AccountController.send(:include, AccountControllerPatch)
-
-# TODO add 'send_again' action

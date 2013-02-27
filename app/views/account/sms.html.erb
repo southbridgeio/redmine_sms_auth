@@ -6,7 +6,10 @@
             <td align="left"><%= text_field_tag :sms_password %></td>
           </tr>
           <tr>
-            <td align="right" colspan="2">
+            <td align="left">
+              <%= link_to l(:resend_sms), sms_resend_path %>
+            </td>
+            <td align="right" colspan="1">
               <input type="submit" name="login" value="<%=l(:button_login)%> &#187;"/>
             </td>
           </tr>

@@ -1,4 +1,6 @@
 en:
   sms_password: 'SMS confirmation password'
+  resend_sms: 'Resend password'
   notice_account_invalid_sms_password: 'Wrong SMS confirmation password'
+  notice_account_sms_resent_again: 'SMS confirmation password sent again'
   field_mobile_phone: 'Mobile phone'

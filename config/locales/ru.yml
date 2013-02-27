@@ -1,4 +1,6 @@
 ru:
   sms_password: 'Код подтверждения'
+  resend_sms: 'Выслать повторно'
   notice_account_invalid_sms_password: 'Неверный код подтверждения'
+  notice_account_sms_resent_again: 'Код подтверждения выслан повторно'
   field_mobile_phone: 'Мобильный телефон'
