@@ -12,5 +12,8 @@ class AuthSourceSms < AuthSource
     'SMS'
   end
 
+  def self.allow_password_changes?
+    true
+  end
+
 end
-# TODO make password changeable
