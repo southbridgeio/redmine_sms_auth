@@ -23,7 +23,7 @@ module AccountControllerPatch
           render 'sms'
         end
       else
-        redirect_to root_path
+        redirect_to '/'
       end
     end
 
@@ -35,7 +35,7 @@ module AccountControllerPatch
         flash[:notice] = l(:notice_account_sms_resent_again)
         render 'sms'
       else
-        redirect_to root_path
+        redirect_to '/'
       end
     end
 
