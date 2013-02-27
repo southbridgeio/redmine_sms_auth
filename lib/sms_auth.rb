@@ -22,6 +22,7 @@ module SmsAuth
   end
 
   def self.send_sms_password(phone, password)
+    phone = phone.gsub(/[^0-9]+/,'') # Additional phone sanitizing
     send_command = SmsAuth::Configuration.send_command
     send_command = send_command.sub('%{phone}', phone).sub('%{password}', password)
     system send_command
