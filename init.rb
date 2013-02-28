@@ -3,7 +3,7 @@ Redmine::Plugin.register :redmine_sms_auth do
   author 'Pavel Nemkin'
   description 'Plugin adds secondary sms authentication'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
+  url 'https://github.com/olemskoi/redmine_sms_auth'
   author_url 'https://github.com/kanfet'
 end
 
