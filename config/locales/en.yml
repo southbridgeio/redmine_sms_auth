@@ -3,4 +3,5 @@ en:
   resend_sms: 'Resend password'
   notice_account_invalid_sms_password: 'Wrong SMS confirmation password'
   notice_account_sms_resent_again: 'SMS confirmation password sent again'
+  notice_account_sms_limit_exceeded_failed_attempts: 'Limit exceeded of failed attempts. New password sent'
   field_mobile_phone: 'Mobile phone'

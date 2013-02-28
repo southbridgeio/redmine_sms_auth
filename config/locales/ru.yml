@@ -3,4 +3,5 @@ ru:
   resend_sms: 'Выслать повторно'
   notice_account_invalid_sms_password: 'Неверный код подтверждения'
   notice_account_sms_resent_again: 'Код подтверждения выслан повторно'
+  notice_account_sms_limit_exceeded_failed_attempts: 'Превышен предел неудачных попыток. Сгенерирован и выслан новый пароль'
   field_mobile_phone: 'Мобильный телефон'

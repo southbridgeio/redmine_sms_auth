@@ -47,6 +47,7 @@ class AccountControllerPatchTest < ActionController::TestCase
     assert_template 'sms'
     assert @request.session[:sms_user_id] == 2
     assert @request.session[:sms_password] == '1234'
+    assert @request.session[:sms_failed_attempts] == 0
   end
 
   def test_sms_confirm_without_sms_user_id_in_session
@@ -72,6 +73,23 @@ class AccountControllerPatchTest < ActionController::TestCase
     assert_select 'div.flash.error', :text => /Wrong SMS confirmation password/
   end
 
+  def test_sms_confirm_with_wrong_sms_password_limit_of_failed_attempts_exceeded
+    User.find(2).update_attribute :mobile_phone, '79999999999'
+
+    SmsAuth.expects(:generate_sms_password).returns('7890')
+    SmsAuth.expects(:send_sms_password).with('79999999999', '7890')
+
+    @request.session[:sms_user_id] = 2
+    @request.session[:sms_password] = '1234'
+    @request.session[:sms_failed_attempts] = 2
+
+    post :sms_confirm, sms_password: '12345'
+    assert_select 'div.flash.error', :text => /New password sent/
+    assert @request.session[:sms_user_id] == 2
+    assert @request.session[:sms_password] == '7890'
+    assert @request.session[:sms_failed_attempts] == 0
+  end
+
   def test_sms_confirm_with_correct_sms_password
     @request.session[:sms_user_id] = 2
     @request.session[:sms_password] = '1234'
@@ -81,6 +99,7 @@ class AccountControllerPatchTest < ActionController::TestCase
     assert User.current == User.find(2)
     assert @request.session[:sms_user_id] == nil
     assert @request.session[:sms_password] == nil
+    assert @request.session[:sms_failed_attempts] == nil
   end
 
   def test_sms_resend_without_sms_user_id_in_session
@@ -109,6 +128,9 @@ class AccountControllerPatchTest < ActionController::TestCase
 
     assert_template 'sms'
     assert_select 'div.flash.notice', :text => /SMS confirmation password sent again/
+    assert @request.session[:sms_user_id] == 2
+    assert @request.session[:sms_password] == '5678'
+    assert @request.session[:sms_failed_attempts] == 0
   end
 
 end
