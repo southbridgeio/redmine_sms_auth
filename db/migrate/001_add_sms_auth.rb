@@ -4,6 +4,6 @@ class AddSmsAuth < ActiveRecord::Migration
   end
 
   def down
-    AuthSource.where(type: 'AuthSourceSms').destroy
+    AuthSource.where(type: 'AuthSourceSms').destroy_all
   end
 end

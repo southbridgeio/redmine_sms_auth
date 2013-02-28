@@ -1,6 +1,6 @@
 # Redmine SMS Auth
 
-Plugin adds SMS-authentication to Redmine.
+Plugin adds SMS-authentication to [Redmine](http://www.redmine.org/). Plugin compatible with Redmine 2.0.x, 2.1.x, 2.2.x, 2.3.x
 
 ## Some notes
 
@@ -63,7 +63,7 @@ rake redmine:plugins:migrate
 
 4. Rollback migration
 ```
-rake redmine:plugins:migrate VERSION=0 NAME=redmine_auth_sms
+rake redmine:plugins:migrate VERSION=0 NAME=redmine_sms_auth
 ```
 
 5. Remove plugin directory from your redmine/plugins directory
