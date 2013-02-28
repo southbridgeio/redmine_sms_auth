@@ -30,17 +30,12 @@ RAILS_ENV=production rake redmine:plugins:migrate
 git clone git://github.com/olemskoi/redmine_sms_auth.git
 ```
 
-3. Install dependencies
-```
-bundle install
-```
-
-4. Run migration
+3. Run migration
 ```
 rake redmine:plugins:migrate
 ```
 
-5. Add command for sms sending (and optionally password length) to configuration.yml
+4. Add command for sms sending (and optionally password length) to configuration.yml
 ```yaml
     production:
       sms_auth:
@@ -48,10 +43,10 @@ rake redmine:plugins:migrate
         password_length: 5
 ```
 
-6. Run redmine
+5. Run redmine
 
-7. Set 'Authentication mode' to 'SMS' for each user (Administration - Users)
-8. (Optionally) Set mobile phone number for each user. Also user can set number for himself.
+6. Set 'Authentication mode' to 'SMS' for each user (Administration - Users)
+7. (Optionally) Set mobile phone number for each user. Also user can set number for himself.
 
 ## Uninstall
 
