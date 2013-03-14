@@ -18,6 +18,8 @@ module AccountControllerPatch
           session[:sms_user_id] = nil
           session[:sms_password] = nil
           session[:sms_failed_attempts] = nil
+          params[:back_url] = session[:sms_back_url]
+          session[:sms_back_url] = nil
           successful_authentication(user)
         else
           session[:sms_failed_attempts] ||= 0
@@ -51,6 +53,7 @@ module AccountControllerPatch
     def password_authentication_with_sms_auth
       user = User.where(login: params[:username].to_s).first
       if user && user.auth_source && user.auth_source.auth_method_name == 'SMS' && !user.mobile_phone.blank?
+        session[:sms_back_url] = params[:back_url]
         if User.try_to_login(params[:username], params[:password]) == user
           session[:sms_user_id] = user.id
           regenerate_sms_password(user)

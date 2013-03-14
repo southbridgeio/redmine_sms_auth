@@ -50,6 +50,12 @@ class AccountControllerPatchTest < ActionController::TestCase
     assert @request.session[:sms_failed_attempts] == 0
   end
 
+  def test_login_with_back_url
+    User.find(2).update_attribute :mobile_phone, '79999999999'
+    post :login, :username => 'jsmith', :password => 'jsmith', back_url: 'http://localhost/somewhere'
+    assert @request.session[:sms_back_url] == 'http://localhost/somewhere'
+  end
+
   def test_sms_confirm_without_sms_user_id_in_session
     @request.session[:sms_user_id] = nil
     @request.session[:sms_password] = '1234'
@@ -93,6 +99,7 @@ class AccountControllerPatchTest < ActionController::TestCase
   def test_sms_confirm_with_correct_sms_password
     @request.session[:sms_user_id] = 2
     @request.session[:sms_password] = '1234'
+    @request.session[:sms_back_url] = 'http://localhost/somewhere'
     post :sms_confirm, sms_password: '1234'
 
     assert_redirected_to '/my/page'
@@ -100,6 +107,8 @@ class AccountControllerPatchTest < ActionController::TestCase
     assert @request.session[:sms_user_id] == nil
     assert @request.session[:sms_password] == nil
     assert @request.session[:sms_failed_attempts] == nil
+    assert @request.session[:sms_back_url] == nil
+    assert @request.params[:back_url] == 'http://localhost/somewhere'
   end
 
   def test_sms_resend_without_sms_user_id_in_session
