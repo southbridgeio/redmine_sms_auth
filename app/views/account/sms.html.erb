@@ -1,5 +1,8 @@
 <div id="login-form">
     <%= form_tag(sms_confirm_path) do %>
+        <% if params[:autologin] %>
+          <%= hidden_field_tag 'autologin', params[:autologin] %>
+        <% end %>
         <table>
           <tr>
             <td align="right"><label for="sms_password"><%=l(:sms_password)%>:</label></td>
