@@ -1,6 +1,6 @@
-# Redmine SMS Auth
+# Redmine 2Auth
 
-Plugin adds SMS-authentication to [Redmine](http://www.redmine.org/). Plugin compatible with Redmine 2.0.x, 2.1.x, 2.2.x, 2.3.x
+Plugin adds SMS-authentication to [Redmine](http://www.redmine.org/). Plugin compatible with Redmine 2.0.x and higher.
 
 ## Some notes
 
@@ -31,7 +31,7 @@ RAILS_ENV=production rake redmine:plugins:migrate
 
 2. Clone repository to your redmine/plugins directory
 ```
-git clone git://github.com/olemskoi/redmine_sms_auth.git
+git clone git://github.com/centosadmin/redmine_2auth.git
 ```
 
 3. Run migration
