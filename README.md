@@ -1,4 +1,5 @@
-# Redmine 2Auth
+# Redmine SMS Auth
+
 
 Plugin adds SMS-authentication to [Redmine](http://www.redmine.org/). Plugin compatible with Redmine 2.0.x and higher.
 
