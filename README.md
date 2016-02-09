@@ -69,4 +69,4 @@ rake redmine:plugins:migrate VERSION=0 NAME=redmine_sms_auth
 
 ## Sponsors
 
-Work on this plugin was fully funded by [centos-admin.ru](http://centos-admin.ru)
+Work on this plugin was fully funded by [Centos-admin.ru](http://centos-admin.ru)
