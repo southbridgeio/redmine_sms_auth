@@ -6,7 +6,7 @@
         <table>
           <tr>
             <td align="right"><label for="sms_password"><%=l(:sms_password)%>:</label></td>
-            <td align="left"><%= text_field_tag :sms_password %></td>
+            <td align="left"><%= text_field_tag(:sms_password, :autocomplete => "off") %></td>
           </tr>
           <tr>
             <td align="left">
