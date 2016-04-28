@@ -3,6 +3,8 @@
 
 Plugin adds SMS-authentication to [Redmine](http://www.redmine.org/). Plugin compatible with Redmine 2.0.x and higher.
 
+Please help us make this plugin better telling us of any [issues](https://github.com/centosadmin/redmine_sms_auth/issues) you'll face using it. We are ready to answer all your questions regarding this plugin.
+
 ## Some notes
 
 When you use SMS-authentication user should pass two steps: standard password checking and sms-password confirmation.
