@@ -1,5 +1,6 @@
 # Redmine SMS Auth
 
+This plugin is deprecated. Please use https://github.com/centosadmin/redmine_2fa
 
 Plugin adds SMS-authentication to [Redmine](http://www.redmine.org/). Plugin compatible with Redmine 2.0.x and higher.
 
