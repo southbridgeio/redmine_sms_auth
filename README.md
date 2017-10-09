@@ -1,3 +1,5 @@
+[![Rate at redmine.org](http://img.shields.io/badge/rate%20at-redmine.org-blue.svg?style=flat)](http://www.redmine.org/plugins/redmine_sms_auth)
+
 # Redmine SMS Auth
 
 This plugin is deprecated. Please use https://github.com/centosadmin/redmine_2fa
