@@ -2,11 +2,11 @@
 
 # Redmine SMS Auth
 
-This plugin is deprecated. Please use https://github.com/centosadmin/redmine_2fa
+This plugin is deprecated. Please use https://github.com/southbridgeio/redmine_2fa
 
 Plugin adds SMS-authentication to [Redmine](http://www.redmine.org/). Plugin compatible with Redmine 2.0.x and higher.
 
-Please help us make this plugin better telling us of any [issues](https://github.com/centosadmin/redmine_sms_auth/issues) you'll face using it. We are ready to answer all your questions regarding this plugin.
+Please help us make this plugin better telling us of any [issues](https://github.com/southbridgeio/redmine_sms_auth/issues) you'll face using it. We are ready to answer all your questions regarding this plugin.
 
 ## Some notes
 
@@ -37,7 +37,7 @@ RAILS_ENV=production rake redmine:plugins:migrate
 
 2. Clone repository to your redmine/plugins directory
 ```
-git clone git://github.com/centosadmin/redmine_sms_auth.git
+git clone git://github.com/southbridgeio/redmine_sms_auth.git
 ```
 
 3. Run migration
