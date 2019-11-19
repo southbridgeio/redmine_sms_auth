@@ -1,10 +1,10 @@
 Redmine::Plugin.register :redmine_sms_auth do
   name 'Redmine SMS Auth plugin'
-  author 'Centos-admin.ru'
+  author 'Southbridge'
   description 'Plugin adds secondary (2FA) SMS authentication'
   version '0.0.4'
-  url 'https://github.com/centosadmin/redmine_sms_auth'
-  author_url 'http://centos-admin.ru'
+  url 'https://github.com/southbridgeio/redmine_sms_auth'
+  author_url 'https://southbridge.io'
 end
 
 ActionDispatch::Callbacks.to_prepare do
